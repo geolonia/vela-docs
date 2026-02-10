@@ -24,7 +24,7 @@ Vela OS は **AWS Lambda** 上で動作し、**MongoDB Atlas** をデータス�
 
 Vela OS は **AWS API Gateway** 経由で API リクエストを受信し、**AWS Lambda** 関数にルーティングします。Lambda 関数は NGSI リクエスト（エンティティ CRUD、サブスクリプション、ジオクエリ、フェデレーション）を処理し、データを **MongoDB Atlas** に保存します。
 
-```
+```text
 クライアントリクエスト
     ↓
 API Gateway（HTTP / WebSocket）

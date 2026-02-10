@@ -18,7 +18,7 @@ Vela OS は FIWARE Orion のモダンな代替として、クラウドネイテ�
 | **API サポート** | NGSIv2 + NGSI-LD（単一インスタンス） | NGSIv2（Orion）または NGSI-LD（Orion-LD） |
 | **スケーリング** | 自動（Lambda） | 手動（コンテナオーケストレーション） |
 | **料金体系** | 従量課金 | 固定インフラコスト |
-| **ライセンス** | GPL v3.0 | AGPL v3.0 |
+| **ライセンス** | GPL v3.0（OSS 版） | AGPL v3.0 |
 
 ## 9つの主要な差別化ポイント
 
@@ -42,7 +42,7 @@ Vela は 4 つの AI 連携エンドポイントを標準搭載しています�
 | `POST /mcp` | Claude Desktop / AI エージェント向け MCP サーバー | ❌ |
 | `GET /` | llms.txt — LLM が読める形式の API ドキュメント | ❌ |
 | `GET /tools.json` | Claude / OpenAI 向けツール定義 | ❌ |
-| `GET /openapi.json` | OpenAPI 3.0 仕様 | ✅ |
+| `GET /openapi.json` | OpenAPI 3.0 仕様 | ❌ |
 
 Vela では、AI アシスタントが標準化されたツールインターフェースを通じて IoT エンティティを直接クエリ、作成、管理できます。
 

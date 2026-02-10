@@ -24,7 +24,7 @@ Vela OS is a **FIWARE Orion-compatible Context Broker** that runs on **AWS Lambd
 
 Vela OS receives API requests through **AWS API Gateway**, which routes them to **AWS Lambda** functions. These functions process NGSI requests — entity CRUD, subscriptions, geo-queries, federation — and store data in **MongoDB Atlas**.
 
-```
+```text
 Client Request
     ↓
 API Gateway (HTTP / WebSocket)

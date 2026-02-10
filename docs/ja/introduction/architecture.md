@@ -91,7 +91,7 @@ graph LR
 
 ## ソースコード構造
 
-```
+```text
 src/
 ├── api/                 # HTTP レイヤー
 │   ├── ngsiv2/          # NGSIv2 API（ルート、コントローラー、トランスフォーマー）

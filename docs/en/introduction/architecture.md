@@ -91,7 +91,7 @@ graph LR
 
 ## Source Code Structure
 
-```
+```text
 src/
 ├── api/                 # HTTP layer
 │   ├── ngsiv2/          # NGSIv2 API (routes, controllers, transformers)
