@@ -773,7 +773,7 @@ curl -X DELETE "https://api.vela.geolonia.com/admin/metrics?before=2025-12-31T23
 
 ## ヘルスチェックとシステムエンドポイント
 
-これらのエンドポイントは認証不要です。
+/health と /version エンドポイントは認証不要です。その他の管理エンドポイントには super_admin ロールが必要です。
 
 ### ヘルスチェック
 

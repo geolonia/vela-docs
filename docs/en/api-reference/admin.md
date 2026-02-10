@@ -773,7 +773,7 @@ curl -X DELETE "https://api.vela.geolonia.com/admin/metrics?before=2025-12-31T23
 
 ## Health and System Endpoints
 
-These endpoints do not require authentication.
+The /health and /version endpoints do not require authentication. All other admin endpoints require super_admin role.
 
 ### Health Check
 

@@ -499,18 +499,24 @@ Apply Merge-Patch semantics to multiple entities at once. Existing attributes ar
 ### Entity Purge
 
 ```http
-POST /ngsi-ld/v1/entityOperations/purge
+DELETE /ngsi-ld/v1/entities/
 ```
 
-Delete all entities of a specified type (ETSI GS CIM 009 Section 5.6.14).
+Delete entities matching the specified criteria (ETSI GS CIM 009 Section 5.6.21).
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `type` | string | Entity type to purge (**required**) |
+| `type` | string | Entity type selector (**required**) |
+| `attrs` | string | Comma-separated list of attributes to delete (optional) |
+| `q` | string | Query filter for entity selection (optional) |
+| `georel` | string | Geographic relationship query (optional) |
+
+At least one of the following must be provided: `type`, `attrs` (including non-system attributes), `q` (including non-system attributes), or a geographic query.
 
 **Response:**
 - Success: `204 No Content`
-- Type not specified: `400 Bad Request`
+- Partial success (distributed operation): `207 Multi-Status`
+- Missing required criteria: `400 Bad Request`
 
 ## Subscriptions
 
@@ -1133,8 +1139,9 @@ A consolidated reference of query parameters available across entity endpoints.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `join` | string | `inline` (nest within Relationship) or `flat` (append to result array) |
-| `joinLevel` | integer | Depth of linked entity resolution (default: 1) |
+| `join` | string | Linked entity retrieval mode: `inline` (nest within Relationship), `flat` (append to result array), or `@none` (no retrieval, **default**) |
+| `joinLevel` | integer | Depth of linked entity traversal (default: 1, only applicable when `join` is `flat` or `inline`) |
+| `containedBy` | string | Comma-separated list of entity IDs already encountered in the entity graph traversal to prevent cycles/duplicates (only applicable with `joinLevel`) |
 
 **Example:**
 

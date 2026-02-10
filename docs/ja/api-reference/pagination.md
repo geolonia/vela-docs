@@ -39,7 +39,7 @@ Vela OS のすべてのリストエンドポイントは、`limit` と `offset` 
 
 | API | ヘッダー | タイミング |
 |-----|---------|----------|
-| NGSIv2 | `Fiware-Total-Count` | リストエンドポイントで常に返される |
+| NGSIv2 | `Fiware-Total-Count` | `options=count` 指定時に返される |
 | NGSI-LD | `NGSILD-Results-Count` | 常に返される |
 | Admin API | `X-Total-Count` | 常に返される |
 | Catalog API | `X-Total-Count` | 常に返される |

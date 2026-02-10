@@ -39,7 +39,7 @@ The total count of matching items is returned via API-specific response headers:
 
 | API | Header | When |
 |-----|--------|------|
-| NGSIv2 | `Fiware-Total-Count` | Always returned on list endpoints |
+| NGSIv2 | `Fiware-Total-Count` | Returned when `options=count` is specified |
 | NGSI-LD | `NGSILD-Results-Count` | Always returned |
 | Admin API | `X-Total-Count` | Always returned |
 | Catalog API | `X-Total-Count` | Always returned |
