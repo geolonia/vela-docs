@@ -3,9 +3,9 @@ layout: home
 ---
 
 <script setup>
+import { withBase } from 'vitepress'
+
 if (typeof window !== 'undefined') {
-  window.location.href = '/en/'
+  window.location.href = withBase('/en/')
 }
 </script>
-
-<meta http-equiv="refresh" content="0;url=/en/">
