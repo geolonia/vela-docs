@@ -1,0 +1,30 @@
+language: ja
+tone_instructions: "日本語でレビューしてください"
+reviews:
+  profile: chill
+  high_level_summary: true
+  auto_review:
+    enabled: true
+    drafts: false
+  path_instructions:
+    - path: "docs/**/*.md"
+      instructions: |
+        ドキュメントの内容を確認してください。
+        - 技術的な正確性（FIWARE NGSIv2/NGSI-LD の仕様に沿っているか）
+        - リンク切れがないか
+        - コードサンプルの正確性
+        - 日英の整合性
+    - path: "scripts/**/*.ts"
+      instructions: |
+        TypeScript のコード品質を確認してください。
+        - 型安全性
+        - エラーハンドリング
+        - ファイル操作の安全性
+    - path: ".github/workflows/**"
+      instructions: |
+        GitHub Actions ワークフローのセキュリティと正確性を確認してください。
+    - path: "docs/.vitepress/**"
+      instructions: |
+        VitePress の設定を確認してください。
+        - i18n 設定の正確性
+        - サイドバー構成の整合性
