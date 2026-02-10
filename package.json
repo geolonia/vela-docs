@@ -8,7 +8,11 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "sync-docs": "tsx scripts/sync-vela-docs.ts",
-    "check-links": "tsx scripts/check-links.ts"
+    "check-links": "tsx scripts/check-links.ts",
+    "test": "vitest run",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "test:all": "vitest run && playwright test"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +21,7 @@
   "devDependencies": {
     "tsx": "^4.21.0",
     "vitepress": "^1.6.4",
+    "vitest": "^4.0.18",
     "vue": "^3.5.28"
   }
 }
