@@ -55,39 +55,23 @@ AI/ML エンジニアが Vela OS の MCP サーバー機能、llms.txt、tools.j
 
 ---
 
-### User Story 4 - DevOps エンジニアが AWS Lambda にデプロイする (Priority: P3)
+### User Story 4 - 初めての開発者がクイックスタートで Vela SaaS を試す (Priority: P1)
 
-DevOps エンジニアが Vela OS を AWS Lambda + MongoDB Atlas 環境にデプロイし、運用（監視・トレーシング・環境変数設定）する方法を理解できるドキュメントを提供する。
+プログラミング経験はあるが FIWARE を知らない開発者が、Vela SaaS の API エンドポイントに対してリクエストを送り、最初のエンティティ CRUD を体験できるチュートリアルを提供する。
 
-**Why this priority**: デプロイ・運用ドキュメントは採用後のフェーズで最も参照される。P1-P2 で興味を持ったユーザーが実際に導入する際に不可欠。
+**Why this priority**: 初回体験の品質が採用率を左右するため最優先。SaaS なのでインストール不要で即座に試せる点を訴求。
 
-**Independent Test**: Deployment & Operations セクションにアクセスし、AWS SAM デプロイ手順、環境変数一覧、OpenTelemetry 設定が閲覧できる。
-
-**Acceptance Scenarios**:
-
-1. **Given** DevOps エンジニアがデプロイを計画している, **When** Deployment セクションを開く, **Then** AWS SAM によるデプロイ手順、必要な AWS リソース（Lambda, API Gateway, EventBridge, SQS, MongoDB Atlas）が一覧で確認できる
-2. **Given** DevOps エンジニアが環境変数を設定したい, **When** Deployment セクションの環境変数一覧を見る, **Then** 全環境変数の説明、デフォルト値、必須/任意が確認できる
-3. **Given** DevOps エンジニアが監視を設定したい, **When** Operations セクションを開く, **Then** OpenTelemetry、Prometheus メトリクス、CloudWatch 連携の設定方法が閲覧できる
-
----
-
-### User Story 5 - 初めての開発者がクイックスタートで Vela を試す (Priority: P1)
-
-プログラミング経験はあるが FIWARE を知らない開発者が、3ステップで Vela OS をローカル起動し、最初のエンティティ CRUD を体験できるチュートリアルを提供する。
-
-**Why this priority**: 「3ステップ起動」は Vela の訴求ポイント。初回体験の品質が採用率を左右するため最優先。
-
-**Independent Test**: Getting Started セクションにアクセスし、Quick Start の手順に従ってローカルで Vela を起動し、エンティティの作成・取得ができる。
+**Independent Test**: Getting Started セクションにアクセスし、Quick Start の手順に従って SaaS API にリクエストを送り、エンティティの作成・取得ができる。
 
 **Acceptance Scenarios**:
 
-1. **Given** 開発者がサイトにアクセスする, **When** Getting Started → Quick Start を開く, **Then** `clone → npm install → npm start` の3ステップ手順が表示され、コピー&ペースト可能なコマンドが提供される
-2. **Given** 開発者が Vela をローカル起動した, **When** First Entity チュートリアルを開く, **Then** NGSIv2 でのエンティティ作成・取得・更新・削除の curl コマンド例が閲覧でき、実行できる
+1. **Given** 開発者がサイトにアクセスする, **When** Getting Started → Quick Start を開く, **Then** SaaS API エンドポイントに対する curl コマンド例が表示され、コピー&ペーストで即座に実行できる
+2. **Given** 開発者が API キーを取得した, **When** First Entity チュートリアルを開く, **Then** NGSIv2 でのエンティティ作成・取得・更新・削除の curl コマンド例（SaaS エンドポイント向け）が閲覧でき、実行できる
 3. **Given** 開発者が NGSI-LD も試したい, **When** Core Concepts → NGSIv2 vs NGSI-LD セクションを開く, **Then** 同じエンティティを両 API で操作する比較例が閲覧できる
 
 ---
 
-### User Story 6 - 開発者が Features の詳細仕様を調べる (Priority: P2)
+### User Story 5 - 開発者が Features の詳細仕様を調べる (Priority: P2)
 
 Vela OS の各機能（Subscriptions、Federation、Geo/ZFXY、Vector Tiles、Temporal、Catalog、Smart Data Models、Snapshots）の詳細仕様を調べる開発者に、包括的なリファレンスを提供する。
 
@@ -103,7 +87,7 @@ Vela OS の各機能（Subscriptions、Federation、Geo/ZFXY、Vector Tiles、Te
 
 ---
 
-### User Story 7 - 開発者がセキュリティ設定を行う (Priority: P3)
+### User Story 6 - 開発者がセキュリティ設定を行う (Priority: P3, Coming Soon)
 
 Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）を設定する開発者に、セキュリティ設定ガイドを提供する。
 
@@ -152,11 +136,11 @@ Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）
 - **FR-020**: System MUST "What is Vela?" ページで Vela OS の概要（AWS Lambda 上の FIWARE Orion 互換 Context Broker）を説明すること
 - **FR-021**: System MUST "Why Vela?" ページで Orion との主要な違い9項目（サーバーレス、AI ネイティブ、地理空間拡張、日本政府標準、デュアル API、エンタープライズ認証、リアルタイム、データカタログ、3ステップ起動）を説明すること
 - **FR-022**: System MUST Architecture ページで Lambda → API Gateway → MongoDB Atlas のアーキテクチャ図と src/ ディレクトリ構造を説明すること
-- **FR-023**: System MUST Quick Start ページで `clone → npm install → npm start` の3ステップ起動手順を提供すること
+- **FR-023**: System MUST Quick Start ページで SaaS API エンドポイントに対するリクエスト手順を提供すること（API キー発行方法は Coming Soon / プレースホルダー）
 
 #### Section 2: Getting Started
 
-- **FR-030**: System MUST Installation ページで動作環境（Node.js 20.x+、MongoDB 8.0+）と npm install 手順を提供すること
+- **FR-030**: System MUST Getting Started ページで SaaS API へのアクセス方法（エンドポイント URL、API キー取得手順）を提供すること（API キー発行方法は Coming Soon / プレースホルダー）
 - **FR-031**: System MUST First Entity チュートリアルで NGSIv2 によるエンティティ CRUD の curl コマンド例を提供すること
 - **FR-032**: System MUST Demo App ページで vela-demo-app（React + MapLibre GL JS）への導線と概要を提供すること
 
@@ -195,13 +179,10 @@ Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）
 - **FR-073**: System MUST 活用例ページで Python + Claude API / OpenAI API のコード例を提供すること
 - **FR-074**: System MUST NGSI-LD 属性型の自動検出（Property, Relationship, GeoProperty, LanguageProperty）の仕様を説明すること
 
-#### Section 7: Security
+#### Section 7: Security (Coming Soon)
 
-- **FR-080**: System MUST JWT ページで認証フロー（ログイン → アクセストークン + リフレッシュトークン）と AUTH_ENABLED 設定を説明すること
-- **FR-081**: System MUST OAuth/OIDC ページで Client Credentials フロー (M2M) と外部 IdP 連携 (OIDC) を説明すること
-- **FR-082**: System MUST RBAC ページで super_admin, tenant_admin, user の3ロールの権限マトリクスを提供すること
-- **FR-083**: System MUST XACML ページでポリシー・ポリシーセットの定義例とアクセス制御の仕様を説明すること
-- **FR-084**: System MUST IP制限ページでテナントごとの IP ホワイトリスト設定を説明すること
+- **FR-080**: System SHOULD Security セクションのトップページに「Coming Soon」を表示し、SaaS 提供開始後に詳細ドキュメントを公開する旨を記載すること
+- **FR-081**: System SHOULD 将来的に JWT 認証、OAuth/OIDC、RBAC、XACML、IP制限の各ページを公開すること（SaaS 認証基盤の設計確定後）
 
 #### Section 8: Japan Standards
 
@@ -209,18 +190,11 @@ Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）
 - **FR-091**: System MUST 空間ID/ZFXY ページでデジタル庁/IPA 空間IDガイドライン準拠の3D空間識別仕様を説明すること
 - **FR-092**: System MUST スマートシティ事例ページで Vela OS のスマートシティ・IoT ユースケースを紹介すること
 
-#### Section 9: Deployment & Operations
+#### Section 9: Migration
 
-- **FR-100**: System MUST AWS Lambda デプロイページで SAM テンプレート、AWS リソース（API Gateway, EventBridge, SQS, MongoDB Atlas）の構成を説明すること
-- **FR-101**: System MUST MongoDB Atlas ページで接続設定と Time Series Collection の要件を説明すること
-- **FR-102**: System MUST 環境変数ページで全環境変数の一覧（説明、デフォルト値、必須/任意）を提供すること
-- **FR-103**: System MUST OpenTelemetry ページで OTLP over HTTP/gRPC、AWS X-Ray 連携、Prometheus メトリクスの設定を説明すること
-
-#### Section 10: Migration
-
-- **FR-110**: System MUST Orion → Vela 移行ガイドで移行手順（データ移行、API エンドポイント変更、認証設定、サブスクリプション移行）を提供すること
+- **FR-110**: System MUST Orion → Vela SaaS 移行ガイドで、Orion セルフホスト環境から Vela SaaS への移行手順（API エンドポイント変更、認証方式の切り替え、サブスクリプション移行）を提供すること
 - **FR-111**: System MUST 互換性マトリクスで NGSIv2・NGSI-LD の全エンドポイント対応状況、Vela 独自機能、Orion のみの機能を一覧すること
-- **FR-112**: System MUST 既知の非互換点（httpCustom.json、httpCustom.ngsi、JEXL式 が未対応）を明記すること
+- **FR-112**: System MUST 既知の非互換点（httpCustom.json、httpCustom.ngsi、JEXL式 が未対応）と SaaS 固有の制約事項を明記すること
 
 #### 技術選定
 
@@ -240,7 +214,7 @@ Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）
 ### Key Entities
 
 - **Documentation Page**: VitePress で管理される1つの Markdown ページ。タイトル、frontmatter（言語、カテゴリ、ソースパス）、本文を持つ
-- **Section**: サイドバーの大分類（10セクション）。Introduction, Getting Started, Core Concepts, API Reference, Features, AI Integration, Security, Japan Standards, Deployment & Operations, Migration
+- **Section**: サイドバーの大分類（9セクション）。Introduction, Getting Started, Core Concepts, API Reference, Features, AI Integration, Security (Coming Soon), Japan Standards, Migration
 - **Source Document**: Vela 本体 `docs/` から取り込む元ドキュメント（25ファイル）。ビルドスクリプトで VitePress 形式に変換される
 - **Original Content**: vela-docs リポジトリ独自のコンテンツ（チュートリアル、概要、事例）。Source Document とは独立して管理
 
@@ -251,10 +225,10 @@ Vela OS の認証・認可機能（JWT、OAuth/OIDC、RBAC、XACML、IP制限）
 - **SC-001**: VitePress でサイトがビルドでき、`npm run docs:dev` でローカルプレビューが動作すること
 - **SC-002**: Vela 本体 `docs/` の25ファイルの内容がサイトに正しく取り込まれ、閲覧可能であること
 - **SC-003**: 日英2言語の切り替えが VitePress i18n で動作し、各ページで言語選択できること
-- **SC-004**: 10セクション（Introduction, Getting Started, Core Concepts, API Reference, Features, AI Integration, Security, Japan Standards, Deployment & Operations, Migration）が全てナビゲーションに表示されること
+- **SC-004**: 9セクション（Introduction, Getting Started, Core Concepts, API Reference, Features, AI Integration, Security (Coming Soon), Japan Standards, Migration）が全てナビゲーションに表示されること
 - **SC-005**: Orion 開発者が移行判断に必要な情報（互換性マトリクス、移行手順、非互換点）が Migration セクションに揃っていること
 - **SC-006**: API リファレンス（NGSIv2, NGSI-LD, Admin API）が閲覧可能で、エンドポイント・パラメータ・レスポンス例が含まれること
-- **SC-007**: Quick Start の手順に従って `clone → npm install → npm start` → エンティティ CRUD が実行可能であること
+- **SC-007**: Quick Start の手順に従って SaaS API エンドポイントに対してエンティティ CRUD が実行可能であること
 - **SC-008**: AI Integration セクションで MCP 接続方法、tools.json スキーマ、コード例が閲覧可能であること
 - **SC-009**: サイト内検索で「subscription」「CADDE」「ZFXY」等のキーワードで関連ページがヒットすること
 - **SC-010**: レスポンシブデザインでモバイル表示が崩れないこと
