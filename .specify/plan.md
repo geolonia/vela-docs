@@ -5,7 +5,7 @@
 
 ## Summary
 
-Vela OS（FIWARE Orion 互換 Context Broker）の公式ドキュメントサイトを VitePress で構築する。Vela 本体の `docs/`（25ファイル、約12,000行）を Single Source of Truth として取り込みつつ、チュートリアルや導入事例等の独自コンテンツも管理する。日英2言語対応、10セクション構成。
+Vela OS（FIWARE Orion 互換 Context Broker）の公式ドキュメントサイトを VitePress で構築する。Vela 本体の `docs/`（25ファイル、約12,000行）を Single Source of Truth として取り込みつつ、チュートリアルや導入事例等の独自コンテンツも管理する。日英2言語対応、9セクション構成。Vela OS は当面 SaaS として提供し、OSS としては公開しない。
 
 ## Technical Context
 
@@ -13,11 +13,11 @@ Vela OS（FIWARE Orion 互換 Context Broker）の公式ドキュメントサイ
 **Primary Dependencies**: VitePress 1.x (latest), Vue 3
 **Storage**: N/A (静的サイト生成)
 **Testing**: VitePress ビルド成功 + リンク検証スクリプト
-**Target Platform**: Web (静的サイトホスティング: GitHub Pages or Cloudflare Pages)
+**Target Platform**: Web (静的サイトホスティング: GitHub Pages)
 **Project Type**: single (VitePress ドキュメントプロジェクト)
 **Performance Goals**: ビルド時間 < 60秒、ページロード < 2秒
 **Constraints**: Vela 本体 docs/ との同期を維持、i18n 2言語
-**Scale/Scope**: 約60ページ（25 取り込み + 35 オリジナル）、4ペルソナ対応
+**Scale/Scope**: 約50ページ（25 取り込み + 25 オリジナル）、4ペルソナ対応
 
 ## 1. Vela 本体 docs/ からの取り込みメカニズム
 
@@ -116,20 +116,11 @@ vela-docs/
 │   │   │   ├── tools-json.md
 │   │   │   └── examples.md
 │   │   ├── security/
-│   │   │   ├── jwt.md
-│   │   │   ├── oauth-oidc.md
-│   │   │   ├── rbac.md
-│   │   │   ├── xacml.md
-│   │   │   └── ip-restriction.md
+│   │   │   └── index.md              # Coming Soon ページ
 │   │   ├── japan-standards/
 │   │   │   ├── cadde.md
 │   │   │   ├── spatial-id-zfxy.md
 │   │   │   └── smart-city-cases.md
-│   │   ├── deployment/
-│   │   │   ├── aws-lambda.md
-│   │   │   ├── mongodb-atlas.md
-│   │   │   ├── environment-variables.md
-│   │   │   └── opentelemetry.md
 │   │   └── migration/
 │   │       ├── orion-to-vela.md
 │   │       └── compatibility-matrix.md
@@ -143,7 +134,7 @@ vela-docs/
 └── tsconfig.json
 ```
 
-**ページ数**: 約 44 ページ/言語 × 2言語 = 約 88 ページ
+**ページ数**: 約 38 ページ/言語 × 2言語 = 約 76 ページ
 
 ## 3. i18n 構成
 
@@ -183,7 +174,7 @@ export default defineConfig({
 [Vela OS] [Getting Started] [API Reference] [Features] [AI] [GitHub ↗]
 ```
 
-### サイドバー（10セクション）
+### サイドバー（9セクション）
 
 ```
 Introduction
@@ -228,23 +219,13 @@ AI Integration
 ├── tools.json
 └── Examples
 
-Security
-├── JWT Authentication
-├── OAuth / OIDC
-├── RBAC
-├── XACML Policies
-└── IP Restriction
+Security (Coming Soon)
+└── index.md              # Coming Soon 表示のみ
 
 Japan Standards
 ├── CADDE
 ├── Spatial ID / ZFXY
 └── Smart City Cases
-
-Deployment & Operations
-├── AWS Lambda
-├── MongoDB Atlas
-├── Environment Variables
-└── OpenTelemetry
 
 Migration
 ├── Orion → Vela Guide
@@ -323,8 +304,8 @@ jobs:
 | API_ENDPOINTS.md | 439 | API Reference | api-reference/endpoints.md |
 | API_ENDPOINTS_NGSIV2.md | — | API Reference | api-reference/ngsiv2.md (統合) |
 | API_ENDPOINTS_NGSILD.md | — | API Reference | api-reference/ngsild.md (統合) |
-| AUTH_SCENARIOS.md | 1,564 | Security | security/jwt.md, security/rbac.md |
-| AUTH_OAUTH.md | 887 | Security | security/oauth-oidc.md |
+| AUTH_SCENARIOS.md | 1,564 | Security (Coming Soon) | security/index.md (将来展開時に活用) |
+| AUTH_OAUTH.md | 887 | Security (Coming Soon) | security/index.md (将来展開時に活用) |
 | AUTH_ADMIN.md | 774 | API Reference | api-reference/admin.md |
 | AI_INTEGRATION.md | 150 | AI Integration | ai-integration/overview.md, ai-integration/tools-json.md, ai-integration/examples.md |
 | MCP.md | 159 | AI Integration | ai-integration/mcp-server.md |
@@ -335,9 +316,7 @@ jobs:
 | CATALOG.md | 254 | Features | features/catalog.md |
 | PAGINATION.md | 295 | API Reference | api-reference/pagination.md |
 | STATUS_CODES.md | 704 | API Reference | api-reference/status-codes.md |
-| DEPLOYMENT.md | 266 | Deployment | deployment/aws-lambda.md |
 | DEVELOPMENT.md | 480 | Getting Started | getting-started/installation.md (開発者向け部分) |
-| TELEMETRY.md | 173 | Deployment | deployment/opentelemetry.md |
 | DEMO_SCENARIO.md | 734 | Getting Started | getting-started/demo-app.md, getting-started/first-entity.md |
 | FIWARE_ORION_COMPARISON.md | 411 | Migration | migration/compatibility-matrix.md |
 | FAQ.md | 400 | (トップレベル) | faq.md (各セクションに分散 or 独立ページ) |
@@ -363,11 +342,7 @@ jobs:
 | cadde.md | Japan Standards | CADDE 連携（新規） |
 | spatial-id-zfxy.md | Japan Standards | 空間ID 解説（新規） |
 | smart-city-cases.md | Japan Standards | スマートシティ事例（新規） |
-| mongodb-atlas.md | Deployment | MongoDB Atlas 設定（新規） |
-| environment-variables.md | Deployment | 環境変数一覧（新規） |
-| orion-to-vela.md | Migration | 移行ガイド（新規） |
-| xacml.md | Security | XACML ポリシー（新規） |
-| ip-restriction.md | Security | IP制限（新規） |
+| orion-to-vela.md | Migration | SaaS 移行ガイド（新規） |
 
 ## 7. 技術スタック詳細
 
@@ -378,7 +353,7 @@ jobs:
 | **パッケージマネージャ** | pnpm | vela-demo-app と統一、高速・ディスク効率 |
 | **ビルドスクリプト** | tsx (TypeScript 実行) | 型安全な変換ロジック |
 | **検索** | VitePress 組み込み (MiniSearch) | 初期は組み込みで十分。規模拡大時に Algolia DocSearch 移行 |
-| **デプロイ先** | GitHub Pages (初期) → Cloudflare Pages (将来) | 無料、CDN 配信、GitHub 連携 |
+| **デプロイ先** | GitHub Pages | 無料、CDN 配信、GitHub 連携 |
 | **CI/CD** | GitHub Actions | vela リポジトリとの連携、PR 自動作成 |
 
 ### package.json 主要依存
@@ -412,8 +387,8 @@ vela-docs/
 │   │       ├── shared.ts        # 共通設定
 │   │       ├── en.ts            # 英語サイドバー・ナビ
 │   │       └── ja.ts            # 日本語サイドバー・ナビ
-│   ├── en/                      # 英語コンテンツ（44ページ）
-│   └── ja/                      # 日本語コンテンツ（44ページ）
+│   ├── en/                      # 英語コンテンツ（38ページ）
+│   └── ja/                      # 日本語コンテンツ（38ページ）
 ├── scripts/
 │   └── sync-vela-docs.ts        # Vela docs 取り込みスクリプト
 ├── .specify/                    # speckit 管理
