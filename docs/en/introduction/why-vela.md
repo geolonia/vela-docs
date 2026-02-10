@@ -150,4 +150,4 @@ FIWARE Orion may be a better fit when you need:
 
 - [Architecture](/en/introduction/architecture) — Understand how Vela is built
 - [Quick Start](/en/introduction/quick-start) — Make your first API call
-- [Orion to Vela Migration](/en/migration/orion-to-vela) — Step-by-step migration guide
+- Orion to Vela Migration — Step-by-step migration guide
