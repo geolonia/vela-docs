@@ -1,31 +1,31 @@
 ---
-title: Quick Start
-description: Get started with Vela OS SaaS API in minutes — create, read, update, and delete your first entity.
+title: クイックスタート
+description: Vela OS SaaS API を数分で使い始める — エンティティの作成、取得、更新、削除。
 outline: deep
 ---
 
-# Quick Start
+# クイックスタート
 
-This guide walks you through making your first API calls to the Vela OS SaaS endpoint. No installation required — just a terminal with `curl`.
+このガイドでは、Vela OS SaaS エンドポイントへの最初の API コールを紹介します。インストール不要 — `curl` が使えるターミナルだけで始められます。
 
-## Prerequisites
+## 前提条件
 
-- A terminal with `curl` installed
-- An API key for Vela OS SaaS
+- `curl` がインストールされたターミナル
+- Vela OS SaaS の API キー
 
-::: tip Coming Soon
-API key registration is currently being prepared. Once available, you'll be able to obtain your key from the Vela OS dashboard.
+::: tip 準備中
+API キーの登録機能は現在準備中です。利用可能になり次第、Vela OS ダッシュボードからキーを取得できるようになります。
 :::
 
-## Step 1: Verify Connectivity
+## ステップ 1: 接続確認
 
-Check that the API endpoint is reachable:
+API エンドポイントに到達できるか確認します：
 
 ```bash
 curl https://api.vela.geolonia.com/version
 ```
 
-Expected response:
+期待されるレスポンス：
 
 ```json
 {
@@ -36,9 +36,9 @@ Expected response:
 }
 ```
 
-## Step 2: Create an Entity
+## ステップ 2: エンティティの作成
 
-Create a temperature sensor entity using the NGSIv2 API:
+NGSIv2 API を使って温度センサーエンティティを作成します：
 
 ```bash
 curl -X POST https://api.vela.geolonia.com/v2/entities \
@@ -65,15 +65,15 @@ curl -X POST https://api.vela.geolonia.com/v2/entities \
   }'
 ```
 
-A successful creation returns **201 Created** with a `Location` header.
+作成に成功すると `Location` ヘッダー付きで **201 Created** が返されます。
 
-::: info About Fiware-Service
-The `Fiware-Service` header acts as a tenant identifier. Data is fully isolated between tenants. Choose any name for your project (e.g., `myproject`, `smartcity`).
+::: info Fiware-Service について
+`Fiware-Service` ヘッダーはテナント識別子として機能します。テナント間でデータは完全に分離されます。プロジェクトに合わせて任意の名前を指定してください（例：`myproject`、`smartcity`）。
 :::
 
-## Step 3: Retrieve the Entity
+## ステップ 3: エンティティの取得
 
-Read back the entity you just created:
+作成したエンティティを読み取ります：
 
 ```bash
 curl https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001 \
@@ -81,7 +81,7 @@ curl https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001
   -H "Fiware-Service: myproject"
 ```
 
-Expected response:
+期待されるレスポンス：
 
 ```json
 {
@@ -104,9 +104,9 @@ Expected response:
 }
 ```
 
-## Step 4: Update the Entity
+## ステップ 4: エンティティの更新
 
-Update the temperature reading:
+温度の値を更新します：
 
 ```bash
 curl -X PATCH https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001/attrs \
@@ -121,9 +121,9 @@ curl -X PATCH https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureS
   }'
 ```
 
-A successful update returns **204 No Content**.
+更新に成功すると **204 No Content** が返されます。
 
-Verify the update:
+更新を確認：
 
 ```bash
 curl https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001/attrs/temperature \
@@ -141,9 +141,9 @@ curl https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001
 }
 ```
 
-## Step 5: Delete the Entity
+## ステップ 5: エンティティの削除
 
-Remove the entity:
+エンティティを削除します：
 
 ```bash
 curl -X DELETE https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001 \
@@ -151,11 +151,11 @@ curl -X DELETE https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:Temperature
   -H "Fiware-Service: myproject"
 ```
 
-A successful deletion returns **204 No Content**.
+削除に成功すると **204 No Content** が返されます。
 
-## Step 6: Try NGSI-LD (Optional)
+## ステップ 6: NGSI-LD を試す（オプション）
 
-Vela supports NGSI-LD alongside NGSIv2. Create the same entity using the NGSI-LD API:
+Vela は NGSIv2 と並行して NGSI-LD もサポートしています。NGSI-LD API で同じエンティティを作成してみましょう：
 
 ```bash
 curl -X POST https://api.vela.geolonia.com/ngsi-ld/v1/entities \
@@ -180,25 +180,25 @@ curl -X POST https://api.vela.geolonia.com/ngsi-ld/v1/entities \
   }'
 ```
 
-Retrieve it via either API:
+どちらの API からでも取得できます：
 
 ```bash
-# Via NGSI-LD
+# NGSI-LD 経由
 curl https://api.vela.geolonia.com/ngsi-ld/v1/entities/urn:ngsi-ld:TemperatureSensor:001 \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Fiware-Service: myproject"
 
-# Via NGSIv2 (cross-API access)
+# NGSIv2 経由（クロス API アクセス）
 curl https://api.vela.geolonia.com/v2/entities/urn:ngsi-ld:TemperatureSensor:001 \
   -H "x-api-key: YOUR_API_KEY" \
   -H "Fiware-Service: myproject"
 ```
 
-Both APIs return the same entity, automatically transformed to the requested format.
+両方の API が同じエンティティを返し、リクエストされた形式に自動変換されます。
 
-## What's Next?
+## 次のステップ
 
-- [Installation & Setup](/en/getting-started/installation) — API access details and recommended tools
-- [First Entity Tutorial](/en/getting-started/first-entity) — In-depth CRUD walkthrough with subscriptions
-- [Demo App](/en/getting-started/demo-app) — Explore interactive demo applications
-- NGSIv2 API Reference — Full API documentation
+- [セットアップ](/ja/getting-started/installation) — API アクセスの詳細と推奨ツール
+- [はじめてのエンティティ](/ja/getting-started/first-entity) — サブスクリプションを含む詳細な CRUD チュートリアル
+- [デモアプリ](/ja/getting-started/demo-app) — インタラクティブなデモアプリケーション
+- [NGSIv2 API リファレンス](/ja/api-reference/ngsiv2) — 完全な API ドキュメント
