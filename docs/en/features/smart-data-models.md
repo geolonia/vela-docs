@@ -40,6 +40,8 @@ When you retrieve entities via the NGSI-LD API, Vela OS checks if the entity typ
 
 ### Example
 
+> **Note:** NGSI-LD endpoints use the `/ngsi-ld/v1` base path, while NGSIv2 uses `/v2`. Ensure you're using the correct API path for your client.
+
 **Create a Smart Data Model entity:**
 
 ```bash
@@ -48,6 +50,7 @@ curl -X POST https://api.vela.geolonia.com/ngsi-ld/v1/entities \
   -H "NGSILD-Tenant: smartcity" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
+    "@context": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
     "id": "urn:ngsi-ld:OffStreetParking:downtown",
     "type": "OffStreetParking",
     "name": {

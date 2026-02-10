@@ -14,7 +14,7 @@ Vela OS provides three notification channels for real-time data delivery when en
 |---------|-----------|-----------|---------|----------|
 | HTTP Webhook | Push | Subscription conditions | ~1 min | HTTP/HTTPS POST |
 | MQTT | Push | Subscription conditions | ~1 min | MQTT 3.1.1 / 5.0 |
-| WebSocket | Push | Tenant + entity type/ID pattern | ~1 min | WebSocket (WSS) |
+| WebSocket | Push | Tenant + entity type/ID pattern | Real-time (sub-second) | WebSocket (WSS) |
 
 ## Creating Subscriptions
 

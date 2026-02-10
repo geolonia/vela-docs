@@ -52,6 +52,7 @@ curl -X POST https://api.vela.geolonia.com/ngsi-ld/v1/csourceRegistrations \
   -H "NGSILD-Tenant: smartcity" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
+    "@context": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
     "type": "ContextSourceRegistration",
     "information": [
       {

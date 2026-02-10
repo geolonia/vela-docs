@@ -106,6 +106,8 @@ Vela OS supports TTL configuration for temporal data to manage storage growth. T
 
 TTL is configured at the tenant level. Records exceeding the retention period are cleaned up automatically via MongoDB TTL indexes.
 
+> **Note:** In Vela OS SaaS, TTL is managed at the tenant level by administrators. For details on configuring TTL settings, refer to the [Admin API documentation](/api-reference/admin-api).
+
 ### Use Cases
 
 | TTL Setting | Scenario |

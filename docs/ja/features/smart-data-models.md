@@ -40,6 +40,8 @@ NGSI-LD API 経由でエンティティを取得する際、Vela OS はエンテ
 
 ### 使用例
 
+> **注:** NGSI-LD エンドポイントは `/ngsi-ld/v1` ベースパスを使用し、NGSIv2 は `/v2` を使用します。クライアントには正しい API パスを使用してください。
+
 **Smart Data Model エンティティの作成：**
 
 ```bash
@@ -48,6 +50,7 @@ curl -X POST https://api.vela.geolonia.com/ngsi-ld/v1/entities \
   -H "NGSILD-Tenant: smartcity" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
+    "@context": "https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context.jsonld",
     "id": "urn:ngsi-ld:OffStreetParking:downtown",
     "type": "OffStreetParking",
     "name": {
