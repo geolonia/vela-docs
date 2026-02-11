@@ -1,0 +1,114 @@
+name: Sync and Translate Vela Docs
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [vela-docs-sync]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-and-translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout vela-docs
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Checkout geolonia/vela (docs/ only via sparse-checkout)
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          repository: geolonia/vela
+          path: .vela-upstream
+          sparse-checkout: docs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run sync-docs
+        run: VELA_REPO_PATH=.vela-upstream pnpm run sync-docs
+
+      - name: Detect changed files
+        id: detect
+        run: |
+          # sync-docs writes English content to docs/ja/ paths
+          # Check for any .md file changes
+          CHANGED=$(git diff --name-only -- 'docs/' | grep '\.md$' || true)
+          UNTRACKED=$(git ls-files --others --exclude-standard -- 'docs/' | grep '\.md$' || true)
+          ALL_CHANGED=$(echo -e "${CHANGED}\n${UNTRACKED}" | sort -u | grep -v '^$' || true)
+
+          if [ -z "$ALL_CHANGED" ]; then
+            echo "No documentation changes detected"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Changed files:"
+            echo "$ALL_CHANGED"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "$ALL_CHANGED" > /tmp/changed_files.txt
+            # Build file list for PR body
+            {
+              echo "file_list<<EOF"
+              echo "$ALL_CHANGED"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Translate changed files
+        if: steps.detect.outputs.has_changes == 'true'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # sync-docs puts English content into docs/ja/ paths.
+          # Translate each changed ja file from English to Japanese in-place.
+          JA_FILES=$(grep '^docs/ja/' /tmp/changed_files.txt || true)
+          if [ -z "$JA_FILES" ]; then
+            echo "No docs/ja/ files to translate"
+            exit 0
+          fi
+          echo "Translating $(echo "$JA_FILES" | wc -l) files..."
+          while IFS= read -r file; do
+            if [ -f "$file" ]; then
+              echo "Translating: $file"
+              npx yuuhitsu translate --input "$file" --lang ja --output "$file" || {
+                echo "WARNING: Failed to translate $file, keeping English content"
+              }
+            fi
+          done <<< "$JA_FILES"
+
+      - name: Build verification
+        if: steps.detect.outputs.has_changes == 'true'
+        run: pnpm docs:build
+
+      - name: Create Pull Request
+        if: steps.detect.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
+        with:
+          commit-message: "docs: sync and translate from vela/docs (${{ github.event.client_payload.sha || 'manual' }})"
+          title: "docs: sync and translate from vela/docs"
+          body: |
+            ## Automated Sync & Translation
+
+            **Trigger**: ${{ github.event_name }}
+            **Vela SHA**: ${{ github.event.client_payload.sha || 'N/A (manual dispatch)' }}
+
+            ### Changed files
+            ${{ steps.detect.outputs.file_list }}
+
+            ### Process
+            1. Synced docs from geolonia/vela
+            2. Translated changed English docs to Japanese via yuuhitsu
+            3. Build verification passed
+          branch: docs/auto-sync-translate
+          base: main
+          labels: documentation,automated
