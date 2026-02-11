@@ -44,7 +44,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Vector tile generation API
 - Temporal API for time-series data
 - Entity snapshot functionality
-- JSON-LD context management
 - Data catalog API (CKAN/DCAT compatible)
 - QUICKSTART.md guide for new users (#372)
 - DEPLOYMENT.md with comprehensive AWS deployment instructions (#382)

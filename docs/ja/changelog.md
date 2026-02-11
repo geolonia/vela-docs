@@ -44,7 +44,6 @@ outline: deep
 - ベクタータイル生成API
 - 時系列データのTemporal API
 - エンティティスナップショット機能
-- JSON-LDコンテキスト管理
 - データカタログAPI（CKAN/DCAT互換）
 - 新規ユーザー向けQUICKSTART.mdガイド (#372)
 - 包括的なAWSデプロイ手順を含むDEPLOYMENT.md (#382)
