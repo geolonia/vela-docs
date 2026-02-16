@@ -13,7 +13,7 @@
 - **デュアル API サポート**: 単一インスタンスで NGSIv2 と NGSI-LD の両方をサポート
 - **日本標準対応**: CADDE 互換、来歴追跡機能を搭載
 
-🌐 **公開ドキュメント**: https://docs.geonicdb.com/
+🌐 **公開ドキュメント**: https://docs.geonicdb.org/
 
 ## 技術スタック
 
