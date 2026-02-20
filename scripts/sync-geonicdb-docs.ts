@@ -210,9 +210,13 @@ function main() {
   const sourceFiles = readdirSync(docsDir).filter(f => f.endsWith('.md'))
 
   // Add CHANGELOG.md from repository root if it exists
+  // Fallback: skip if CHANGELOG.md is not present in the repository root
   const changelogPath = join(geonicdbRepoPath, 'CHANGELOG.md')
   if (existsSync(changelogPath)) {
     sourceFiles.push('CHANGELOG.md')
+    console.log(`  Found CHANGELOG.md at repository root: ${changelogPath}`)
+  } else {
+    console.log(`  SKIP: CHANGELOG.md not found at repository root (${changelogPath})`)
   }
 
   console.log(`Found ${sourceFiles.length} source files in ${docsDir}`)

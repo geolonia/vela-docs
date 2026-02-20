@@ -44,8 +44,6 @@ outline: deep
   - NGSI-LD temporal controller の `AlreadyExistsError` → `AlreadyExistsLdError` に修正（仕様: ETSI GS CIM 009 §5.5.1）(#520)
   - NGSI-LD コントローラーのエラータイプを ETSI 仕様に準拠: JSON パースエラーは `InvalidRequest`、データバリデーションエラーは `BadRequestData`（仕様: ETSI GS CIM 009 §5.5.1, Orion-LD/Stellio 互換）(#520)
   - NGSI-LD batch 207 レスポンスの Content-Type を `application/json` に修正（仕様: ETSI GS CIM 009 §5.6.7/5.6.8）(#520)
-
-### 2026-02-18
 - **Fix**: ReactiveCore Rules の条件評価でエンティティレベルフィールド（`id`, `type`）を `attributeName` に指定できるよう修正（Issue #513）(#516)
   - `value` 条件と `pattern` 条件で `attributeName: "id"` / `"type"` をサポート (#516)
   - PATCH 後にルールアクションが実行されない問題を解消 (#516)
