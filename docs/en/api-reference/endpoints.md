@@ -532,7 +532,12 @@ ADMIN_ALLOWED_IPS=192.168.1.100
 ADMIN_ALLOWED_IPS=192.168.1.100,10.0.0.50
 
 # CIDR notation
-ADMIN_ALLOWED_IPS=192.168.1.0/24,10.0.0.0/8| `/oauth/token` | POST | OAuth token acquisition (M2M) | 200 | 400, 401 |
+ADMIN_ALLOWED_IPS=192.168.1.0/24,10.0.0.0/8
+```
+
+| Endpoint | Method | Description | Success | Error |
+|----------|--------|-------------|---------|-------|
+| `/oauth/token` | POST | OAuth token acquisition (M2M) | 200 | 400, 401 |
 
 ### User Endpoints
 
@@ -629,7 +634,7 @@ Manage CADDE (Cross-domain Advanced Data Distribution and Exchange) settings via
   "jwtAudience": "my-api",
   "jwksUrl": "https://auth.example.com/.well-known/jwks.json"
 }
-```http
+```
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
@@ -688,7 +693,7 @@ Returns `400 Bad Request` on validation failure:
   "error": "BadRequest",
   "description": "Entity validation failed: temperature: Value (150) exceeds maximum (100)"
 }
-```http
+```
 
 #### Automatic JSON Schema Generation
 
@@ -751,4 +756,4 @@ For details, see [Event Streaming Documentation](../features/subscriptions.md).
 - [FIWARE Orion Context Broker Documentation](https://fiware-orion.readthedocs.io/)
 - [IPA Spatial ID Guidelines](https://www.ipa.go.jp/digital/architecture/guidelines/4dspatio-temporal-guideline.html)
 - [Digital Agency Spatial ID](https://www.digital.go.jp/policies/mobility_and_infrastructure/spatial-id)
-- [RFC 7946 GeoJSON](https
+- [RFC 7946 GeoJSON](https://datatracker.ietf.org/doc/html/rfc7946)
