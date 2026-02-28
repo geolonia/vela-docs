@@ -140,8 +140,8 @@ geonicdb-demo-app/
 
 ## リンク
 
-- **GitHub リポジトリ**: [geolonia/geonicdb-demo-app](https://github.com/geolonia/geonicdb-demo-app)
-- **GeonicDB**: [geolonia/geonicdb](https://github.com/geolonia/geonicdb)
+- **GitHub リポジトリ**: [geolonia/GeonicDB-demo-app](https://github.com/geolonia/geonicdb-demo-app)
+- **GeonicDB**: [geolonia/GeonicDB](https://github.com/geolonia/geonicdb)
 - **Geolonia Maps**: [geolonia.com](https://geolonia.com/)
 
 ## 次のステップ

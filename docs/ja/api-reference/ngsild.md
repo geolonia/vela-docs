@@ -342,12 +342,12 @@ DELETE /ngsi-ld/v1/entities/{entityId}/attrs/{attrName}
 
 | パラメータ | 型 | 説明 |
 |-----------|-----|------|
-| `datasetId` | string | 削除するマルチアトリビュートインスタンスの datasetId |
+| `datasetId` | string | 削除するマルチ属性インスタンスの datasetId |
 | `deleteAll` | boolean | `true` の場合、すべてのインスタンスを削除 |
 
 **レスポンス**: `204 No Content`
 
-### マルチアトリビュート（datasetId）
+### マルチ属性（datasetId）
 
 > **ETSI GS CIM 009 参照**: Section 4.5.3 - Multi-Attribute
 
@@ -385,7 +385,7 @@ NGSI-LD では、同じ属性名に対して複数のインスタンスを保持
 
 #### 取得（RETRIEVE）
 
-エンティティ取得時、マルチアトリビュートは配列形式で返却されます。`keyValues` 形式ではデフォルトインスタンス（`datasetId` なし）の値のみが返されます。
+エンティティ取得時、マルチ属性は配列形式で返却されます。`keyValues` 形式ではデフォルトインスタンス（`datasetId` なし）の値のみが返されます。
 
 #### 更新（UPDATE）
 
@@ -1081,13 +1081,13 @@ Context Source Registration では以下の高度フィールドがサポート�
 
 ### 分散オペレーション情報
 
-#### ブローカーアイデンティティ取得
+#### コンテキストブローカーアイデンティティ取得
 
 ```http
 GET /ngsi-ld/v1/info/sourceIdentity
 ```
 
-コンテキストブローカーのアイデンティティ情報を返します。分散環境でのブローカー識別に使用されます。
+コンテキストブローカーのアイデンティティ情報を返します。分散環境でのコンテキストブローカー識別に使用されます。
 
 **レスポンス**: `200 OK` (`application/ld+json`)
 
@@ -1113,7 +1113,7 @@ NGSI-LD 仕様への準拠状況を返します。
 | ヘッダー | 説明 |
 |----------|------|
 | `NGSILD-Warning` | フェデレーション中にコンテキストソースの一部が失敗した場合に設定される警告メッセージ（ETSI GS CIM 009 - 6.3.6） |
-| `Via` | 分散オペレーションのループ検出用ヘッダー。ブローカーは転送リクエストに自身のIDを追加する（ETSI GS CIM 009 - 6.3.5） |
+| `Via` | 分散オペレーションのループ検出用ヘッダー。コンテキストブローカーは転送リクエストに自身のIDを追加する（ETSI GS CIM 009 - 6.3.5） |
 
 #### CSR変更通知
 
@@ -1526,7 +1526,7 @@ ETSI NGSI-LD 互換の Context Broker API です。
 
 | エンドポイント | メソッド | 説明 | 成功 | エラー |
 |---------------|---------|------|------|--------|
-| `/ngsi-ld/v1/info/sourceIdentity` | GET | ブローカーアイデンティティ取得 | 200 | - |
+| `/ngsi-ld/v1/info/sourceIdentity` | GET | コンテキストブローカーアイデンティティ取得 | 200 | - |
 | `/ngsi-ld/v1/info/conformance` | GET | NGSI-LD 適合性情報取得 | 200 | - |
 
 ### JSON-LD コンテキスト管理

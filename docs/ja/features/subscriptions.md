@@ -5,7 +5,7 @@ outline: deep
 ---
 # WebSocket イベントストリーミング
 
-GeonicDB は WebSocket を使用したリアルタイムのイベントストリーミングをサポートしています。エンティティの変更をリアルタイムで購読し、Webアプリケーションやダッシュボードに即座に反映できます。
+GeonicDB は WebSocket を使用したリアルタイムのイベントストリーミングをサポートしています。エンティティの変更をリアルタイムでサブスクリプションし、Webアプリケーションやダッシュボードに即座に反映できます。
 
 ## 目次
 
@@ -170,7 +170,7 @@ ws://localhost:3000?tenant={tenantName}
 |-----------|-----|------|
 | `type` | string | `entityCreated`, `entityUpdated`, `entityDeleted` |
 | `tenant` | string | テナント名 |
-| `servicePath` | string | サービスパス |
+| `servicePath` | string | ServicePath |
 | `entityId` | string | エンティティID |
 | `entityType` | string | エンティティタイプ |
 | `data` | object | エンティティの属性データ |

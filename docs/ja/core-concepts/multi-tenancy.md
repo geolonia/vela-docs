@@ -60,7 +60,7 @@ curl https://api.geonicdb.geolonia.com/v2/entities?type=Room \
 - 英数字とアンダースコアのみ使用可能です。
 - 省略した場合、`default` テナントが使用されます。
 
-## サービスパス
+## ServicePath
 
 `Fiware-ServicePath` ヘッダーは、テナント**内**での階層的なデータ整理を提供します。
 
@@ -162,7 +162,7 @@ curl -H "Fiware-Service: customer_b" ...
 
 ### 部門別の整理
 
-サービスパスを使用して、テナント内のデータを部門や場所別に整理：
+ServicePathを使用して、テナント内のデータを部門や場所別に整理：
 
 ```bash
 # 異なるフロアのセンサーデータを作成

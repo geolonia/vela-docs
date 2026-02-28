@@ -202,7 +202,7 @@ JWT トークンは `/auth/login` エンドポイントで取得できます。
 - **認証無効時**: 省略すると `default` テナントが使用されます。
 - **認証有効時**: 省略するとログインユーザーのテナントがデフォルトになります。`super_admin` は任意のテナントにアクセスできますが、`tenant_admin`/`user` は自テナントのみアクセス可能です。
 
-### サービスパス指定
+### ServicePath指定
 
 `entities`、`types`、`attributes`、`batch`、`temporal` ツールには `servicePath` パラメータがあり、階層的なスコープでエンティティを管理できます。
 

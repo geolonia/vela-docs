@@ -672,7 +672,7 @@ POST /v2/subscriptions
 
 | フィールド | 型 | 必須 | 説明 |
 |-----------|-----|------|------|
-| `url` | string | ✓ | MQTTブローカーURL（`mqtt://` または `mqtts://`） |
+| `url` | string | ✓ | MQTT broker URL（`mqtt://` または `mqtts://`） |
 | `topic` | string | ✓ | 通知先トピック |
 | `qos` | integer | - | QoSレベル（0, 1, 2）デフォルト: 0 |
 | `retain` | boolean | - | メッセージ保持フラグ。デフォルト: false |
