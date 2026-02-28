@@ -1,0 +1,106 @@
+glossary:
+  brand:
+    - term: GeonicDB
+      en: GeonicDB
+      ja: GeonicDB
+      description: Geolonia's geospatial database service built on NGSI-LD standard
+    - term: Geolonia
+      en: Geolonia
+      ja: ジオリア
+      description: Company that develops and operates GeonicDB
+    - term: NGSI-LD
+      en: NGSI-LD
+      ja: NGSI-LD
+      description: Next Generation Service Interface with Linked Data — the open standard protocol that GeonicDB implements
+
+  domain:
+    - term: entity
+      en: entity
+      ja: エンティティ
+      description: The fundamental data unit in GeonicDB; represents a real-world object with typed attributes
+    - term: temporal
+      en: temporal
+      ja: 時系列
+      description: Time-series aspect of GeonicDB entities; historical snapshots and diffs of entity state over time
+    - term: GeoProperty
+      en: GeoProperty
+      ja: GeoProperty
+      description: A geospatial attribute on a GeonicDB entity (e.g. Point, Polygon) conforming to the NGSI-LD GeoProperty type
+    - term: ReactiveCore
+      en: ReactiveCore
+      ja: リアクティブコア
+      description: GeonicDB's rule engine that reacts to entity changes and triggers actions (e.g. notifications, data pipelines)
+    - term: MCP
+      en: MCP
+      ja: モデルコンテキストプロトコル
+      description: Model Context Protocol — the AI tool-call interface exposed by GeonicDB, enabling LLMs to operate the database
+    - term: tenant
+      en: tenant
+      ja: テナント
+      description: Isolated organisational unit within GeonicDB; resources such as entities and rules are scoped per tenant
+    - term: schema
+      en: schema
+      ja: スキーマ
+      description: Type definition that describes the structure of a GeonicDB entity; used for validation and documentation
+    - term: snapshot
+      en: snapshot
+      ja: スナップショット
+      description: A point-in-time capture of an entity's attribute values, available via the Temporal API
+    - term: diff
+      en: diff
+      ja: 差分
+      description: The set of attribute changes between two snapshots of an entity; surfaced in the Temporal Viewer
+
+  ui:
+    - term: Dashboard
+      en: Dashboard
+      ja: ダッシュボード
+      description: Top-level overview screen in the GeonicDB console showing system health and key metrics
+    - term: Entity Browser
+      en: Entity Browser
+      ja: Entityブラウザ
+      description: Console screen for listing, searching, creating, and importing NGSI-LD entities
+    - term: Temporal Viewer
+      en: Temporal Viewer
+      ja: Temporalビューア
+      description: Console screen for browsing time-series data, snapshots, and diffs of entities
+    - term: ReactiveCore Rules
+      en: ReactiveCore Rules
+      ja: ReactiveCoreルール
+      description: Console screen for defining and managing reactive rules that respond to entity changes
+    - term: OAuth Clients
+      en: OAuth Clients
+      ja: OAuthクライアント
+      description: Console screen for managing OAuth 2.0 client credentials used to access the GeonicDB API
+    - term: AI Assistant
+      en: AI Assistant
+      ja: AIアシスタント
+      description: Console screen providing an LLM-powered chat interface for GeonicDB operations and analysis
+    - term: Billing
+      en: Billing
+      ja: 課金・プラン
+      description: Console screen for viewing and managing subscription plans and usage-based charges
+    - term: Onboarding
+      en: Onboarding
+      ja: オンボーディング
+      description: Guided wizard screen that walks new users through initial GeonicDB setup
+    - term: Settings
+      en: Settings
+      ja: 設定
+      description: Console screen for managing account-level configuration such as profile and notification preferences
+    - term: Quota Management
+      en: Quota Management
+      ja: クォータ管理
+      description: Console screen for viewing and configuring resource usage limits per tenant
+    - term: Job Scheduler
+      en: Job Scheduler
+      ja: ジョブスケジューラ
+      description: Console screen for scheduling and monitoring periodic data-processing jobs
+    - term: Timeline
+      en: Timeline
+      ja: タイムライン
+      description: Tab within the Temporal Viewer showing a chart of entity attribute values over a selected time range
+    - term: Import
+      en: Import
+      ja: インポート
+      description: Tab within the Entity Browser for bulk-loading entities from CSV, GeoJSON, or Excel files
