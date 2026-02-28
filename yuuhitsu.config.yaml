@@ -1,4 +1,7 @@
 provider: claude
 model: claude-sonnet-4-5-20250929
-glossary:
-  path: glossary.yaml
+glossary: ./glossary.yaml
+outputDir: ./docs/ja
+log:
+  enabled: true
+  path: ./yuuhitsu.log
