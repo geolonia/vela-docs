@@ -60,9 +60,8 @@ jobs:
         run: pnpm test:e2e
 
   glossary-check:
-    name: Glossary Check (warn-only until cmd_206 complete)
+    name: Glossary Check
     runs-on: ubuntu-latest
-    continue-on-error: true   # warn-only: cmd_206 完了後に削除して strict にする
     steps:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
