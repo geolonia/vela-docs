@@ -1,106 +1,259 @@
-glossary:
-  brand:
-    - term: GeonicDB
+version: 1
+languages: [en, ja]
+terms:
+  # === brand ===
+  - canonical: GeonicDB
+    type: brand
+    translations:
       en: GeonicDB
       ja: GeonicDB
-      description: Geolonia's geospatial database service built on NGSI-LD standard
-    - term: Geolonia
+    do_not_use:
+      ja: ["ジオニックDB", "geonicdb"]
+
+  - canonical: Geolonia
+    type: brand
+    translations:
       en: Geolonia
-      ja: ジオリア
-      description: Company that develops and operates GeonicDB
-    - term: NGSI-LD
+      ja: ジオロニア
+    do_not_use:
+      ja: ["ジオリア", "ゲオロニア"]
+
+  - canonical: NGSI-LD
+    type: brand
+    translations:
       en: NGSI-LD
       ja: NGSI-LD
-      description: Next Generation Service Interface with Linked Data — the open standard protocol that GeonicDB implements
+    do_not_use:
+      ja: ["NGSILD", "ngsi-ld"]
 
-  domain:
-    - term: entity
+  - canonical: ReactiveCore
+    type: brand
+    translations:
+      en: ReactiveCore
+      ja: ReactiveCore
+    do_not_use:
+      ja: ["リアクティブコア", "Reactive Core"]
+
+  - canonical: MapLibre
+    type: brand
+    translations:
+      en: MapLibre
+      ja: MapLibre
+    do_not_use:
+      ja: ["マップリブレ", "maplibre"]
+
+  - canonical: FIWARE
+    type: brand
+    translations:
+      en: FIWARE
+      ja: FIWARE
+    do_not_use:
+      ja: ["ファイウェア", "fiware"]
+
+  - canonical: MCP
+    type: brand
+    translations:
+      en: MCP
+      ja: MCP
+    do_not_use:
+      ja: ["モデルコンテキストプロトコル", "エムシーピー"]
+
+  # === domain ===
+  - canonical: entity
+    type: domain
+    translations:
       en: entity
       ja: エンティティ
-      description: The fundamental data unit in GeonicDB; represents a real-world object with typed attributes
-    - term: temporal
+    do_not_use:
+      ja: ["エンティティー", "実体", "エンテティ"]
+
+  - canonical: temporal
+    type: domain
+    translations:
       en: temporal
       ja: 時系列
-      description: Time-series aspect of GeonicDB entities; historical snapshots and diffs of entity state over time
-    - term: GeoProperty
+    do_not_use:
+      ja: ["テンポラル"]
+
+  - canonical: GeoProperty
+    type: domain
+    translations:
       en: GeoProperty
       ja: GeoProperty
-      description: A geospatial attribute on a GeonicDB entity (e.g. Point, Polygon) conforming to the NGSI-LD GeoProperty type
-    - term: ReactiveCore
-      en: ReactiveCore
-      ja: リアクティブコア
-      description: GeonicDB's rule engine that reacts to entity changes and triggers actions (e.g. notifications, data pipelines)
-    - term: MCP
-      en: MCP
-      ja: モデルコンテキストプロトコル
-      description: Model Context Protocol — the AI tool-call interface exposed by GeonicDB, enabling LLMs to operate the database
-    - term: tenant
+    do_not_use:
+      ja: ["ジオプロパティ", "地理プロパティ"]
+
+  - canonical: Context Broker
+    type: domain
+    translations:
+      en: Context Broker
+      ja: コンテキストブローカー
+    do_not_use:
+      ja: ["コンテキストブローカ", "ブローカー"]
+
+  - canonical: tenant
+    type: domain
+    translations:
       en: tenant
       ja: テナント
-      description: Isolated organisational unit within GeonicDB; resources such as entities and rules are scoped per tenant
-    - term: schema
+
+  - canonical: schema
+    type: domain
+    translations:
       en: schema
       ja: スキーマ
-      description: Type definition that describes the structure of a GeonicDB entity; used for validation and documentation
-    - term: snapshot
+    do_not_use:
+      ja: ["スキーマー"]
+
+  - canonical: snapshot
+    type: domain
+    translations:
       en: snapshot
       ja: スナップショット
-      description: A point-in-time capture of an entity's attribute values, available via the Temporal API
-    - term: diff
+
+  - canonical: diff
+    type: domain
+    translations:
       en: diff
       ja: 差分
-      description: The set of attribute changes between two snapshots of an entity; surfaced in the Temporal Viewer
 
-  ui:
-    - term: Dashboard
+  - canonical: Subscription
+    type: domain
+    translations:
+      en: Subscription
+      ja: サブスクリプション
+    do_not_use:
+      ja: ["購読", "サブスク"]
+
+  - canonical: ServicePath
+    type: domain
+    translations:
+      en: ServicePath
+      ja: ServicePath
+    do_not_use:
+      ja: ["サービスパス"]
+
+  - canonical: Attribute
+    type: domain
+    translations:
+      en: Attribute
+      ja: 属性
+    do_not_use:
+      ja: ["アトリビュート"]
+
+  - canonical: Property
+    type: domain
+    translations:
+      en: Property
+      ja: プロパティ
+    do_not_use:
+      ja: ["プロパティー"]
+
+  - canonical: Relationship
+    type: domain
+    translations:
+      en: Relationship
+      ja: リレーションシップ
+    do_not_use:
+      ja: ["リレーション"]
+
+  - canonical: Notification
+    type: domain
+    translations:
+      en: Notification
+      ja: 通知
+
+  - canonical: WebSocket
+    type: domain
+    translations:
+      en: WebSocket
+      ja: WebSocket
+    do_not_use:
+      ja: ["ウェブソケット"]
+
+  - canonical: API Key
+    type: domain
+    translations:
+      en: API Key
+      ja: APIキー
+    do_not_use:
+      ja: ["API鍵", "エーピーアイキー"]
+
+  # === ui ===
+  - canonical: Dashboard
+    type: ui
+    translations:
       en: Dashboard
       ja: ダッシュボード
-      description: Top-level overview screen in the GeonicDB console showing system health and key metrics
-    - term: Entity Browser
+
+  - canonical: Entity Browser
+    type: ui
+    translations:
       en: Entity Browser
       ja: Entityブラウザ
-      description: Console screen for listing, searching, creating, and importing NGSI-LD entities
-    - term: Temporal Viewer
+
+  - canonical: Temporal Viewer
+    type: ui
+    translations:
       en: Temporal Viewer
       ja: Temporalビューア
-      description: Console screen for browsing time-series data, snapshots, and diffs of entities
-    - term: ReactiveCore Rules
+
+  - canonical: ReactiveCore Rules
+    type: ui
+    translations:
       en: ReactiveCore Rules
       ja: ReactiveCoreルール
-      description: Console screen for defining and managing reactive rules that respond to entity changes
-    - term: OAuth Clients
+
+  - canonical: OAuth Clients
+    type: ui
+    translations:
       en: OAuth Clients
       ja: OAuthクライアント
-      description: Console screen for managing OAuth 2.0 client credentials used to access the GeonicDB API
-    - term: AI Assistant
+
+  - canonical: AI Assistant
+    type: ui
+    translations:
       en: AI Assistant
       ja: AIアシスタント
-      description: Console screen providing an LLM-powered chat interface for GeonicDB operations and analysis
-    - term: Billing
+
+  - canonical: Billing
+    type: ui
+    translations:
       en: Billing
       ja: 課金・プラン
-      description: Console screen for viewing and managing subscription plans and usage-based charges
-    - term: Onboarding
+
+  - canonical: Onboarding
+    type: ui
+    translations:
       en: Onboarding
       ja: オンボーディング
-      description: Guided wizard screen that walks new users through initial GeonicDB setup
-    - term: Settings
+
+  - canonical: Settings
+    type: ui
+    translations:
       en: Settings
       ja: 設定
-      description: Console screen for managing account-level configuration such as profile and notification preferences
-    - term: Quota Management
+
+  - canonical: Quota Management
+    type: ui
+    translations:
       en: Quota Management
       ja: クォータ管理
-      description: Console screen for viewing and configuring resource usage limits per tenant
-    - term: Job Scheduler
+
+  - canonical: Job Scheduler
+    type: ui
+    translations:
       en: Job Scheduler
       ja: ジョブスケジューラ
-      description: Console screen for scheduling and monitoring periodic data-processing jobs
-    - term: Timeline
+
+  - canonical: Timeline
+    type: ui
+    translations:
       en: Timeline
       ja: タイムライン
-      description: Tab within the Temporal Viewer showing a chart of entity attribute values over a selected time range
-    - term: Import
+
+  - canonical: Import
+    type: ui
+    translations:
       en: Import
       ja: インポート
-      description: Tab within the Entity Browser for bulk-loading entities from CSV, GeoJSON, or Excel files
