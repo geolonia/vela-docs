@@ -62,7 +62,7 @@ outline: deep
 | `GET /ngsi-ld/v1/entities` | ✅ | ✅ | エンティティ一覧 |
 | `GET /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | エンティティ取得 |
 | `PUT /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | エンティティ置換 |
-| `PATCH /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | エンティティ更新（merge-patch+json対応、urn:ngsi-ld:null、keyValues/concise入力） |
+| `PATCH /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | エンティティ更新（merge-patch+json対応、`urn:ngsi-ld:null`、keyValues/concise入力） |
 | `POST /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | 属性追加 |
 | `DELETE /ngsi-ld/v1/entities/{id}` | ✅ | ✅ | エンティティ削除 |
 | `GET /ngsi-ld/v1/entities/{id}/attrs` | ✅ | ✅ | 全属性取得 |
@@ -240,7 +240,7 @@ outline: deep
 | **分散オペレーション機能** | | | |
 | CSR変更通知 (Ngsild-Trigger) | ✅ | ❌ | CSR作成/更新/削除時の自動通知（ETSI GS CIM 009 - 5.11） |
 | ループ検出 (Via header) | ✅ | ❌ | 分散フェデレーションのループ防止（ETSI GS CIM 009 - 6.3.5） |
-| 警告ヘッダー (NGSILD-Warning) | ✅ | ❌ | フェデレーション失敗時の警告伝播（ETSI GS CIM 009 - 6.3.6） |
+| 警告ヘッダー (NGSI-LD-Warning) | ✅ | ❌ | フェデレーション失敗時の警告伝播（ETSI GS CIM 009 - 6.3.6） |
 | 分散タイプ/属性探索 | ✅ | ❌ | /types と /attributes がCSRも含む（ETSI GS CIM 009 - 5.9.3.3） |
 | **モード** | | | |
 | inclusive | ✅ | ✅ | ローカル+リモートを統合（NGSI-LD標準、NGSIv2拡張） |
@@ -255,7 +255,7 @@ outline: deep
 | `Fiware-Service` ヘッダー | ✅ | ✅ | テナント識別 |
 | `Fiware-ServicePath` ヘッダー | ✅ | ✅ | 階層的パス |
 | テナント自動分離 | ✅ | ✅ | |
-| 階層的サービスパス | ✅ | ✅ | |
+| 階層的ServicePath | ✅ | ✅ | |
 | 階層検索（`/#`） | ✅ | ✅ | `/path/#` で子パスも含めて検索 |
 | 複数パス指定 | ✅ | ✅ | カンマ区切りで最大10パス |
 | ヘッダー省略時の全検索 | ✅ | ✅ | クエリ時にヘッダー省略で全パス検索 |

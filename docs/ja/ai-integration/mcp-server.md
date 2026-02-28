@@ -75,7 +75,7 @@ MCP サーバーは **8つのツール** を公開しており、`action` パラ
 | `admin` | list, get, create, update, delete, activate, deactivate, change_password | ユーザー・テナント・ポリシー管理（認証必須） |
 | `data_models` | list_domains, list_models, get_model | Smart Data Models カタログ閲覧 |
 
-## テナントとサービスパス
+## テナントとServicePath
 
 ### テナント選択
 
@@ -84,7 +84,7 @@ MCP サーバーは **8つのツール** を公開しており、`action` パラ
 - **認証無効時**: 省略すると `default` テナントが使用されます
 - **認証有効時**: 省略するとログインユーザーのテナントがデフォルト。`super_admin` は任意のテナントにアクセス可能。`tenant_admin` / `user` は自テナントのみ。
 
-### サービスパス
+### ServicePath
 
 `entities`、`types`、`attributes`、`batch`、`temporal` ツールは `servicePath` パラメータを受け付け、階層的なスコープでエンティティを管理できます:
 

@@ -49,7 +49,7 @@ GeonicDB のすべてのリストエンドポイントは、`limit` と `offset`
 
 すべてのページネーション対応エンドポイントは、[RFC 8288](https://www.rfc-editor.org/rfc/rfc8288) 準拠の `Link` ヘッダーをナビゲーション用に返します：
 
-| リレーション | 条件 | 説明 |
+| Relationship | 条件 | 説明 |
 |-----------|------|------|
 | `next` | `offset + limit < total` | 次のページの URL |
 | `prev` | `offset > 0` | 前のページの URL |

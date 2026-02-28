@@ -15,7 +15,7 @@ AWS Lambda 上で動作する FIWARE Orion 互換の Context Broker API ドキ�
 - [認証 API](#認証-api)
 - [メタエンドポイント](#メタエンドポイント)
 - [NGSIv2 API](#ngsiv2-api)（→ [API_NGSIV2.md](./ngsiv2.md)）
-- [NGSI-LD API](#ngsi-ld-api)（→ [API_NGSILD.md](./ngsild.md)）
+- [NGSI-LD API](./ngsild.md)
 - [クエリ言語](#クエリ言語)
 - [ジオクエリ](#ジオクエリ)
 - [空間ID検索](#空間id検索)
@@ -36,7 +36,7 @@ AWS Lambda 上で動作する FIWARE Orion 互換の Context Broker API ドキ�
 
 **📖 関連ドキュメント:**
 - [NGSIv2 / NGSI-LD 相互互換性ガイド](../core-concepts/ngsiv2-vs-ngsild.md) - 両APIの相互運用性、型マッピング、ベストプラクティス
-- [WebSocket イベントストリーミング](../features/subscriptions.md) - リアルタイムイベント購読、実装例、ベストプラクティス
+- [WebSocket イベントストリーミング](../features/subscriptions.md) - リアルタイムイベントサブスクリプション、実装例、ベストプラクティス
 
 ### ベースURL
 
@@ -112,7 +112,7 @@ curl -X GET "https://api.example.com/v2/entities" \
 - 同じテナント内でも `Fiware-ServicePath` でデータを階層的に整理できます
 - テナント名は自動的に小文字に変換されます
 
-### サービスパス仕様
+### ServicePath仕様
 
 [FIWARE Orion仕様](https://fiware-orion.readthedocs.io/en/1.3.0/user/service_path/index.html)に準拠しています。
 
@@ -570,7 +570,7 @@ Authorization: Bearer <accessToken>
 |-----------|------|
 | `limit` | 取得件数（デフォルト: 20、最大: 100） |
 | `offset` | オフセット（デフォルト: 0） |
-| `servicePath` | サービスパスでフィルタ |
+| `servicePath` | ServicePathでフィルタ |
 | `isActive` | 有効/無効でフィルタ（`true` / `false`） |
 
 #### ルール作成
@@ -989,7 +989,7 @@ GET /admin/metrics
 Authorization: Bearer <accessToken>
 ```
 
-テナントおよびサービスパス別のメトリクスを返します。`super_admin` ロールが必要です。
+テナントおよびServicePath別のメトリクスを返します。`super_admin` ロールが必要です。
 
 **レスポンス例**
 
@@ -1024,7 +1024,7 @@ NGSIv2 API の詳細は [API_NGSIV2.md](./ngsiv2.md) を参照してください
 
 ## NGSI-LD API
 
-NGSI-LD API の詳細は [API_NGSILD.md](./ngsild.md) を参照してください。
+NGSI-LD API の詳細は [NGSI-LD APIリファレンス](./ngsild.md) を参照してください。
 
 ---
 

@@ -351,7 +351,7 @@ outline: deep
   - WEBAPP_INTEGRATION.md を EVENT_STREAMING.md に統合
   - CATALOG.md、TELEMETRY.md を INTEGRATIONS.md に統合
   - AUTH_ADMIN.md、AUTH_OAUTH.md、AUTH_SCENARIOS.md を AUTH.md に統合
-  - API_ENDPOINTS*.md を API.md、API_NGSIV2.md、API_NGSILD.md に統合
+  - API_ENDPOINTS*.md を API.md、API_NGSIV2.md、API_NGSI-LD.md に統合
   - RULES.md を REACTIVCORE_RULES.md にリネーム
   - SUBSCRIPTIONS.md を新規作成 - HTTP/MQTT 通知の実践例を含む包括的ガイド
 - **BREAKING**: `AUTHZ_ENABLED` 環境変数を削除。XACMLポリシー評価は `AUTH_ENABLED=true` の場合に自動的に有効化されるよう変更 (#403)
