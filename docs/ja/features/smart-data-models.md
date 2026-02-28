@@ -298,4 +298,4 @@ MCP ツールにより、AI アシスタント (Claude など) が以下を行�
 
 - [MCP.md](../ai-integration/mcp-server.md) - Model Context Protocol サーバー
 - [AI_INTEGRATION.md](../ai-integration/overview.md) - AI ツール統合
-- [API_NGSILD.md](../api-reference/ngsild.md) - NGSI-LD API リファレンス
+- [API_NGSI-LD.md](../api-reference/ngsild.md) - NGSI-LD API リファレンス
