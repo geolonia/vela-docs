@@ -1,2 +1,4 @@
 provider: claude
 model: claude-sonnet-4-5-20250929
+glossary:
+  path: glossary.yaml
