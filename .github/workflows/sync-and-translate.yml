@@ -110,6 +110,29 @@ jobs:
         if: steps.detect.outputs.has_changes == 'true'
         run: npx tsx scripts/fix-doc-quality.ts
 
+      - name: Glossary compliance check (warn-only)
+        if: steps.detect.outputs.has_changes == 'true'
+        continue-on-error: true   # warn-only: cmd_206 完了後に削除して strict にする
+        run: |
+          # Check all ja docs after translation
+          FAILED=0
+          TOTAL=0
+          while IFS= read -r -d '' f; do
+            TOTAL=$((TOTAL + 1))
+            echo "Checking: $f"
+            if ! npx --yes @geolonia/yuuhitsu glossary check \
+                --input "$f" \
+                --glossary glossary.yaml \
+                --lang ja; then
+              echo "::warning file=$f::Glossary violation detected"
+              FAILED=$((FAILED + 1))
+            fi
+          done < <(find docs/ja -name "*.md" -print0)
+          echo "Glossary compliance check: $FAILED/$TOTAL files have violations"
+          if [ "$FAILED" -gt 0 ]; then
+            exit 1
+          fi
+
       - name: Build verification
         if: steps.detect.outputs.has_changes == 'true'
         run: pnpm docs:build
