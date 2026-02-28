@@ -111,7 +111,7 @@ curl "https://api.geonicdb.geolonia.com/catalog/datasets/Room/sample?limit=3" \
 
 ## CKAN 互換 API
 
-GeonicDB は CKAN ハーベスタが Context Broker からデータを直接取り込める CKAN 互換エンドポイントを提供します。
+GeonicDB は CKAN ハーベスタがコンテキストブローカーからデータを直接取り込める CKAN 互換エンドポイントを提供します。
 
 ### GET /catalog/ckan/package_list
 

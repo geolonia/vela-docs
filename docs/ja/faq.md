@@ -93,7 +93,7 @@ GeonicDB に関するよくある質問と回答をまとめています。
 #### 互換性のある機能
 
 - NGSIv2 エンティティ CRUD 操作
-- Subscription（通知）
+- サブスクリプション（通知）
 - Geo クエリ
 - バッチ操作
 - レジストレーション（Context Provider）
