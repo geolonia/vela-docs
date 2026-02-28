@@ -58,3 +58,36 @@ jobs:
 
       - name: Run E2E tests
         run: pnpm test:e2e
+
+  glossary-check:
+    name: Glossary Check (warn-only until cmd_206 complete)
+    runs-on: ubuntu-latest
+    continue-on-error: true   # warn-only: cmd_206 完了後に削除して strict にする
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '20'
+
+      - name: Glossary check (docs/ja/)
+        run: |
+          FAILED=0
+          TOTAL=0
+          while IFS= read -r -d '' f; do
+            TOTAL=$((TOTAL + 1))
+            echo "Checking: $f"
+            if ! npx --yes @geolonia/yuuhitsu glossary check \
+                --input "$f" \
+                --glossary glossary.yaml \
+                --lang ja; then
+              echo "::warning file=$f::Glossary violation detected"
+              FAILED=$((FAILED + 1))
+            fi
+          done < <(find docs/ja -name "*.md" -print0)
+          echo "Glossary check complete: $FAILED/$TOTAL files have violations"
+          if [ "$FAILED" -gt 0 ]; then
+            exit 1
+          fi
