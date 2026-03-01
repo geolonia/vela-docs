@@ -16,13 +16,15 @@ jobs:
       - name: Checkout geonicdb-docs
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
-      - name: Checkout geolonia/geonicdb (docs/ only via sparse-checkout)
+      - name: Checkout geolonia/geonicdb (docs/ and CHANGELOG.md via sparse-checkout)
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           repository: geolonia/geonicdb
           token: ${{ secrets.GEONICDB_PAT }}
           path: .geonicdb-upstream
-          sparse-checkout: docs
+          sparse-checkout: |
+            docs
+            CHANGELOG.md
           sparse-checkout-cone-mode: false
 
       - name: Setup pnpm
