@@ -3,7 +3,7 @@ name: Sync and Translate GeonicDB Docs
 on:
   workflow_dispatch:
   repository_dispatch:
-    types: [geonicdb-docs-sync]
+    types: [geonicdb-docs-updated]
 
 permissions:
   contents: write
